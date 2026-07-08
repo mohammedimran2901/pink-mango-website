@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Mango Technology | Full-Stack Websites for $99</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --pink: #FF007F;
+            --mango: #FFA500;
+            --teal: #00B0B0;
+            --dark: #333333;
+            --light: #F5F5F5;
+            --white: #FFFFFF;
+            --radius: 12px;
+            --spacing: 8px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 924px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 60px 0;
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pink);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--mango);
+        }
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--pink);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: #FF3399;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255,0,127,0.3);
+        }
+        .btn-secondary {
+            background-color: var(--mango);
+            color: var(--white);
+        }
+        .btn-secondary:hover {
+            background-color: #FFB732;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255,165,0,0.3);
+        }
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFF8E1 100%);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        .hero h1 span {
+            color: var(--pink);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--pink);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card:nth-child(2) {
+            border-top-color: var(--mango);
+        }
+        .service-card:nth-child(3) {
+            border-top-color: var(--teal);
+        }
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 20px 0;
+        }
+        .price span {
+            font-size: 1rem;
+            color: #777;
+        }
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .showcase-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: var(--light);
+            position: relative;
+        }
+        .showcase-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .showcase-info {
+            padding: 20px;
+        }
+        .showcase-info h4 {
+            margin-bottom: 10px;
+        }
+        .about {
+            background-color: var(--light);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        footer a {
+            color: var(--mango);
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .services-grid,
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Pink<span>Mango</span> Technology</a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#showcase">Showcase</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#" id="clientLogin">Client Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Full‑Stack Websites for <span>$99</span> Only</h1>
+            <p>Designed for female founders who want a stunning, functional online presence without breaking the bank. We combine cutting‑edge tech with bold, vibrant design.</p>
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="#contact" class="btn btn-secondary">Get Your Website</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Choose the perfect package to launch, maintain, and grow your online presence.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Full‑Stack Website</h3>
+                    <p>A complete, responsive website built with modern technologies (HTML, CSS, JS, backend). Perfect for startups, portfolios, or small businesses.</p>
+                    <div class="price">$99 <span>one‑time</span></div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Custom design</li>
+                        <li>Mobile‑first responsive</li>
+                        <li>Basic SEO optimization</li>
+                        <li>Contact form integration</li>
+                        <li>1‑week delivery</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Order Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Monthly Maintenance</h3>
+                    <p>Keep your site secure, updated, and running smoothly with our monthly maintenance plan.</p>
+                    <div class="price">$49 <span>/month</span></div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Weekly backups</li>
+                        <li>Security monitoring</li>
+                        <li>Software updates</li>
+                        <li>Performance checks</li>
+                        <li>Uptime monitoring</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Subscribe</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Maintenance</h3>
+                    <p>Boost your brand’s visibility across social platforms with regular posts, engagement, and analytics.</p>
+                    <div class="price">$79 <span>/month</span></div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Weekly content creation</li>
+                        <li>Platform management (Instagram, Twitter, LinkedIn)</li>
+                        <li>Audience engagement</li>
+                        <li>Monthly performance report</li>
+                        <li>Hashtag strategy</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Showcase</h2>
+                <p>See some of the websites we've already built for inspiring female founders.</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <img src="https://placehold.co/600x400/FF007F/FFFFFF?text=PrankO.xyz" alt="PrankO.xyz">
+                    <div class="showcase-info">
+                        <h4>PrankO.xyz</h4>
+                        <p>Upload an image, get a 5‑second funny prank video. Built with Node.js & FFmpeg.</p>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <img src="https://placehold.co/600x400/FFA500/FFFFFF?text=Chacha+Chaudhury%27s+Chicken" alt="Chacha Chaudhury's Chicken">
+                    <div class="showcase-info">
+                        <h4>Chacha Chaudhury's Chicken</h4>
+                        <p>British‑Punjabi fusion cafe brand with vibrant, cheeky design.</p>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <img src="https://placehold.co/600x400/00B0B0/FFFFFF?text=Coming+Soon" alt="Coming Soon">
+                    <div class="showcase-info">
+                        <h4>Your Project Here</h4>
+                        <p>Your stunning website could be next. Let's build something amazing together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Pink Mango Technology</h2>
+                <p>We are a vibrant, female‑focused web studio that believes in empowering founders with bold, effective digital solutions.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p>Pink Mango Technology was born from a simple idea: female founders deserve websites that are as dynamic, creative, and resilient as they are. We blend tropical energy (the mango) with daring innovation (the pink) to deliver digital experiences that stand out.</p>
+                <p>Our team specializes in full‑stack development, design, and ongoing support, ensuring your online presence not only launches beautifully but grows with your ambitions.</p>
+                <p><strong>Our avatar:</strong> The female founder who is ready to conquer her industry and needs a website that matches her vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Your Website Today</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours to discuss your project.</p>
+            </div>
+            <div class="contact-form">
+                <form id="websiteOrderForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="fullstack">Full‑Stack Website ($99)</option>
+                            <option value="maintenance">Monthly Maintenance ($49/month)</option>
+                            <option value="social">Social Media Maintenance ($79/month)</option>
+                            <option value="bundle">Website + Maintenance Bundle</option>
+                            <option value="custom">Custom Package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" rows="5" placeholder="Tell us about your business, brand, and any specific requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pink Mango Technology. All rights reserved.</p>
+            <p>Designed with ❤️ for female founders worldwide.</p>
+            <p>Contact: <a href="mailto:hello@pinkmango.tech">hello@pinkmango.tech</a> | <a href="tel:+1234567890">+1 (234) 567‑890</a></p>
+            <p><a href="#" id="clientPortal">Client Portal</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handling (no backend)
+        document.getElementById('websiteOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your inquiry has been sent. We\'ll contact you within 24 hours.');
+            this.reset();
+        });
+
+        // Client login modal (placeholder)
+        document.getElementById('clientLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Client portal is under construction. For now, please email hello@pinkmango.tech for access.');
+        });
+        document.getElementById('clientPortal').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Client portal is under construction. For now, please email hello@pinkmango.tech for access.');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
