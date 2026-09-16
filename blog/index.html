@@ -1,0 +1,18 @@
+---
+layout: default
+title: Blog
+description: Daily articles on women's health, hormones, neurodivergence, and practical self-help
+---
+
+<h1>Pink Mango Blog</h1>
+<p>Practical articles written from real experience. Updated daily.</p>
+
+<ul class="post-list">
+{% for post in site.posts %}
+  <li>
+    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+    {% for cat in post.categories %}<span class="category">{{ cat }}</span>{% endfor %}
+  </li>
+{% endfor %}
+</ul>

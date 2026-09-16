@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="blog-post">
+  <h1>{{ page.title }}</h1>
+  <div class="meta">
+    <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+    {% if page.author %}<span class="author">by {{ page.author }}</span>{% endif %}
+    {% if page.categories %}<span class="category">{{ page.categories | first | capitalize }}</span>{% endif %}
+  </div>
+  <div class="content">
+    {{ content }}
+  </div>
+  <div class="book-link">
+    {% if page.book and page.author %}
+      <p>📖 <strong>{{ page.book }}</strong> by {{ page.author }} — <a href="https://play.google.com/store/search?q={{ page.book | url_encode }}+{{ page.author | url_encode }}&c=books">Available on Google Play Books</a></p>
+    {% endif %}
+  </div>
+</article>

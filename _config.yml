@@ -1,0 +1,15 @@
+title: Pink Mango Publishing
+description: Practical books for women navigating health, hormones, and neurodivergence — written by people who have been there.
+url: https://mohammedimran2901.github.io/pink-mango-website
+baseurl: /pink-mango-website
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: "blog"
+    values:
+      layout: post
