@@ -6,7 +6,7 @@ author: "Clara Bennett"
 condition: "RSD + ADHD"
 date: 2026-09-16
 categories: [rsd-+-adhd]
-tags: [rsd, +, adhd]
+tags: [rsd-and-adhd]
 description: Double wired: when RSD and ADHD feed each other
 ---
 
