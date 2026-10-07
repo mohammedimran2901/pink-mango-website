@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADHD for Women — Tools, Books &amp; Community</title>
+<meta name="description" content="Practical tools and books for women with ADHD, RSD, and AuDHD. Daily check-ins, symptom trackers, and resources.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head><body>
+<header><div class="container"><a href="/" class="logo">Pink Mango<span>Publishing</span></a><nav><a href="index.html" class="active">Home</a><a href="#tools">Tools</a><a href="#books">Books</a><a href="#resources">Resources</a></nav></div></header>
+<section class="hero"><h1>ADHD for Women — <em>Tools That Actually Fit</em></h1><p>Not productivity hacks written by men. Not "just use a planner." Real tools for the ADHD brain.</p><a href="#tools" class="cta">Start with a check-in →</a></section>
+<section id="tools" style="padding:20px"><div class="widget-grid">
+<div class="widget-card"><h3>🌸 Daily Check-in</h3><div class="sub">How are you right now? No judgment.</div>
+<div class="mood-grid">
+<div class="mood-btn"><span class="mood-emoji">💫</span>Great</div>
+<div class="mood-btn"><span class="mood-emoji">🙂</span>Okay</div>
+<div class="mood-btn"><span class="mood-emoji">😐</span>Meh</div>
+<div class="mood-btn"><span class="mood-emoji">😩</span>Rough</div>
+<div class="mood-btn"><span class="mood-emoji">🌊</span>Drowning</div>
+</div>
+<div class="slider-group"><label>Energy: <span>5/10</span></label><input type="range" id="energy" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value+'/10'"><span style="float:right;font-size:12px;color:var(--muted)">5/10</span></div>
+<div class="slider-group"><label>Focus: <span>5/10</span></label><input type="range" id="focus" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value+'/10'"><span style="float:right;font-size:12px;color:var(--muted)">5/10</span></div>
+<div class="slider-group"><label>Overwhelm: <span>5/10</span></label><input type="range" id="overwhelm" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value+'/10'"><span style="float:right;font-size:12px;color:var(--muted)">5/10</span></div>
+<button onclick="saveCheckIn()" style="padding:8px 16px;background:var(--accent);color:white;border:none;border-radius:10px;cursor:pointer;margin-top:8px;">Save Check-in</button><div class="checkin-log" style="margin-top:8px;font-size:13px;color:var(--muted);">No check-ins yet</div></div>
+<div class="widget-card"><h3>💔 RSD Pulse Check</h3><div class="sub">Track what triggered you.</div>
+<div><strong>What triggered it?</strong></div><div class="rsd-buttons">
+<div class="rsd-btn">Criticism</div>
+<div class="rsd-btn">Ignored</div>
+<div class="rsd-btn">Misunderstood</div>
+<div class="rsd-btn">Rejected</div>
+<div class="rsd-btn">Compared</div>
+<div class="rsd-btn">Other</div>
+</div><div style="margin-top:8px;"><strong>Intensity:</strong><input type="range" id="rsd-intensity" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value+'/10'"><span style="font-size:12px;color:var(--muted)">5/10</span></div>
+<button onclick="saveRSD()" style="padding:8px 16px;background:var(--rose);color:white;border:none;border-radius:10px;cursor:pointer;margin-top:8px;">Log RSD Moment</button><div id="rsd-console" style="margin-top:6px;font-size:13px;color:var(--muted);"></div></div>
+<div class="widget-card"><h3>⏱️ Focus Timer</h3><div class="sub">ADHD-friendly pomodoro.</div>
+<div class="timer-display" id="timer-display">25:00</div><div class="timer-controls">
+<button class="timer-btn start" id="timer-btn-start" onclick="toggleTimer()">▶ Start</button>
+<button class="timer-btn reset" onclick="resetTimer()">↻ Reset</button></div>
+<div style="margin-top:8px;"><label>Minutes: <input type="number" id="timer-duration" value="25" min="1" max="90" style="width:60px;padding:4px;border:1px solid var(--border);border-radius:6px;"></label></div></div>
+<div class="widget-card"><h3>💰 ADHD Tax Calculator</h3><div class="sub">The real cost of late fees, impulse buys, forgotten subscriptions.</div>
+<div class="calc-row"><label>Late fees this year</label><input oninput="calcTax()" value="0">x1/mo</div>
+<div class="calc-row"><label>Impulse buys / month</label><input oninput="calcTax()" value="0">x12/mo</div>
+<div class="calc-row"><label>Forgotten subscriptions / month</label><input oninput="calcTax()" value="0">x12/mo</div>
+<div class="calc-row"><label>Replacement items (lost things)</label><input oninput="calcTax()" value="0">x1/mo</div>
+</div><div class="calc-total" id="calc-result">bash/yr</div></div>
+<div class="widget-card"><h3>🧠 Brain Dump</h3><div class="sub">Write it down. Get it out of your head.</div>
+<textarea id="brain-dump" class="brain-dump" placeholder="What is bouncing around in your head right now?&#10;The grocery list, the email you need to send, the appointment you forgot..."></textarea>
+<button class="brain-save" onclick="saveBrainDump()">💾 Save</button><span style="font-size:12px;color:var(--muted);margin-left:8px;">(saved in browser)</span></div>
+<div class="widget-card"><h3>📖 Which Book Do You Need?</h3><div class="sub">5 quick questions → a recommendation.</div>
+<div id="quiz-body"><button onclick="initQuiz()" style="padding:10px 20px;background:var(--purple);color:white;border:none;border-radius:12px;cursor:pointer;">Start Quiz →</button></div></div>
+</div></section>
+<section id="books" class="book-shelf"><h2>📚 Books Written for ADHD Women</h2><p class="sub">By Clara Bennett and Elena Voss, MSc.</p><div class="books">
+<div class="book-item"><h4>The Spark Within</h4><div class="author">Clara Bennett</div><div class="cond">ADHD — Focus &amp; Thriving</div><a class="gplay" href="https://play.google.com/store/search?q=The+Spark+Within+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The RSD Effect</h4><div class="author">Clara Bennett</div><div class="cond">Rejection Sensitivity</div><a class="gplay" href="https://play.google.com/store/search?q=The+RSD+Effect+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The Social Spark</h4><div class="author">Clara Bennett</div><div class="cond">ADHD &amp; Friendships</div><a class="gplay" href="https://play.google.com/store/search?q=The+Social+Spark+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>Both Hands Full</h4><div class="author">Clara Bennett</div><div class="cond">ADHD Motherhood</div><a class="gplay" href="https://play.google.com/store/search?q=Both+Hands+Full+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The Overwhelm Fix</h4><div class="author">Clara Bennett</div><div class="cond">AuDHD Overwhelm</div><a class="gplay" href="https://play.google.com/store/search?q=The+Overwhelm+Fix+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The Burnout Fix</h4><div class="author">Clara Bennett</div><div class="cond">AuDHD Burnout</div><a class="gplay" href="https://play.google.com/store/search?q=The+Burnout+Fix+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The ADHD Money Fix</h4><div class="author">Clara Bennett</div><div class="cond">ADHD &amp; Finances</div><a class="gplay" href="https://play.google.com/store/search?q=The+ADHD+Money+Fix+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The Hormone Shift</h4><div class="author">Clara Bennett</div><div class="cond">Perimenopause</div><a class="gplay" href="https://play.google.com/store/search?q=The+Hormone+Shift+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The AuDHD Woman</h4><div class="author">Clara Bennett</div><div class="cond">Autism + ADHD</div><a class="gplay" href="https://play.google.com/store/search?q=The+AuDHD+Woman+Clara+Bennett&amp;c=books" target="_blank">Google Play →</a></div>
+<div class="book-item"><h4>The Autism Toolkit</h4><div class="author">Elena Voss MSc</div><div class="cond">Autism Women</div><a class="gplay" href="https://play.google.com/store/search?q=The+Autism+Toolkit+for+Women+Elena+Voss&amp;c=books" target="_blank">Google Play →</a></div>
+</div></section>
+<footer><p>© 2026 Pink Mango Publishing</p><p style="margin-top:4px;font-size:12px;">These tools are not medical advice. They are peer support from lived experience.</p></footer>
+<script src="assets/js/widgets.js"></script>
+</body></html>
